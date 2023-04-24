@@ -47,7 +47,7 @@ npm i react-router-dom@5.3.4
 
 Your finished project must include all of the following requirements:
 
-- [ ] The `App` component is wrapped in `BrowserRouter` - complete this requirement in the `index.js` module
+- [x] The `App` component is wrapped in `BrowserRouter` - complete this requirement in the `index.js` module
 - [ ] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable but must have an id of "order-pizza")
 - [ ] A order form that has a "/pizza" route and shows the form
 - [ ] A form with an id of "pizza-form"
