@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from "yup";
 import schema from './Validation/formSchema.js';
 import Header from "./Components/Header.js"
 import Home from "./Components/Home.js";
 import Pizza from "./Components/Pizza.js";
+import Confirmation  from "./Components/Confirmation.js";
 import Help from "./Components/Help.js";
 import "./App.css";
 
@@ -58,11 +59,13 @@ const App = () => {
     number: ''
   });
 
+  const navigate = useNavigate();
   const onSubmit = () => {
     axios.post('https://reqres.in/api/orders', form)
       .then((response) => {
         console.log(response.data);
         setPizza([response.data, ...pizza]);
+        navigate("confirmation");
       })
       .catch(err => console.error(err))
       .finally(() => {
@@ -130,6 +133,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="pizza" element={<Pizza form={form} change={onChange} submit={onSubmit} errors={formErrors} />} />
+        <Route path="confirmation" element={<Confirmation form={form} change={onChange} submit={onSubmit} errors={formErrors} />} />
         <Route path="help" element={<Help />} />
       </Routes>
     </div>

@@ -107,8 +107,8 @@ h1 {
   flex-wrap: wrap;
 }
 
-.choice label {
-  width: 46%;
+.choice div {
+  width: 45%;
 }
 
 .choice p {
